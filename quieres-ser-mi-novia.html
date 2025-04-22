@@ -33,7 +33,7 @@
       border: none;
       border-radius: 12px;
       cursor: pointer;
-      transition: 0.2s ease-in-out;
+      transition: 0.2s ease-in-out, top 0.3s ease, left 0.3s ease;
       position: absolute;
     }
 
@@ -140,7 +140,7 @@
 
   <div id="botones">
     <button id="si" onclick="aceptado()">Sí 💘</button>
-    <button id="no" onmouseover="moverBoton()">No 😢</button>
+    <button id="no" onmouseover="moverBoton()" ontouchstart="moverBoton()">No 😢</button>
   </div>
 
   <div id="mensaje-final" class="mensaje" style="display: none;">¡TE AMO! 💖</div>
@@ -182,3 +182,4 @@
 
 </body>
 </html>
+
