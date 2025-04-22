@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #ffe6e6, #ffcccc);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  h1 {
+    color: #d6006b;
+    font-size: 2.5rem;
+    text-align: center;
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(45deg);
+    animation: floatUp 6s linear infinite;
+  }
+  
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+  }
+  
+  .heart::before {
+    top: -10px;
+    left: 0;
+  }
+  
+  .heart::after {
+    left: -10px;
+    top: 0;
+  }
+  
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) rotate(45deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh) rotate(45deg);
+      opacity: 0;
+    }
+  }
+  .container {
+    text-align: center;
+  }
+  
+  .botones {
+    margin-top: 20px;
+  }
+  
+  button {
+    background-color: #ff66a3;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #e60073;
+  }
+  
+  #mensaje {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #d6006b;
+  }
+  .seccion {
+    display: none;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .seccion button {
+    margin-top: 20px;
+    background-color: #d6006b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .seccion button:hover {
+    background-color: #a60052;
+  }
+  .contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .columna {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .fotos-paulo {
+    flex-direction: row;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .fotos-paulo img {
+    width: 140px;
+  }
+  
+  .contenido-derecha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+        

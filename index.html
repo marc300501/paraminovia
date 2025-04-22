@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Te tengo un regalo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body >
+  <div class="container">
+    <!-- MENÚ PRINCIPAL -->
+    <div id="menu-principal">
+      <h1>Te tengo un regalo amor <3</h1>
+      <div class="botones">
+        <button onclick="window.location.href='sorpresa.html'">Sorpresa</button>
+        <button onclick="window.location.href='carta.html'">Carta</button>
+        <button onclick="window.location.href='te-amo.html'">Te Amo</button>  
+        <button onclick="window.location.href='quieres-ser-mi-novia.html'">¿Quieres ser mi novia?</button>     
+      </div>
+    </div>
+
+    <!-- SECCIONES OCULTAS -->
+    <div id="sorpresa" class="seccion">
+      <h1>🎁 ¡Aquí está tu sorpresa!</h1>
+      <p>Puedes poner aquí una imagen o gif de regalo 🎉</p>
+      <button onclick="volver()">Volver</button>
+    </div>
+
+    <div id="carta" class="seccion">
+      <h1>💌 Carta de amor</h1>
+      <p>Amor mío, esta carta está llena de palabras que no me caben en el corazón...</p>
+      <button onclick="volver()">Volver</button>
+    </div>
+
+    <div id="te-amo" class="seccion">
+      <h1>❤️ ¡Te Amo!</h1>
+      <p>No hay palabras para expresar cuánto significas para mí...</p>
+      <button onclick="volver()">Volver</button>
+    </div>
+  </div>
+
+  <!-- Corazones flotantes -->
+  <script>
+    const createHeart = () => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    };
+    setInterval(createHeart, 500);
+
+    // Mostrar y ocultar secciones
+    function mostrarSeccion(id) {
+      document.getElementById("menu-principal").style.display = "none";
+      document.querySelectorAll(".seccion").forEach(sec => sec.style.display = "none");
+      document.getElementById(id).style.display = "block";
+    }
+
+    function volver() {
+      document.getElementById("menu-principal").style.display = "block";
+      document.querySelectorAll(".seccion").forEach(sec => sec.style.display = "none");
+    }
+  </script>
+</body>
+</html>

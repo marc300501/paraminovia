@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¿Quieres ser mi novia?</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffe6f0;
+      text-align: center;
+      padding: 60px 20px;
+      color: #ff3399;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    #botones {
+      position: relative;
+      height: 250px;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+      position: absolute;
+    }
+
+    #si {
+      background-color: #ff66b2;
+      color: white;
+      left: 35%;
+    }
+
+    #si:active {
+      transform: scale(1.2);
+      background-color: #ff3385;
+    }
+
+    #no {
+      background-color: #cccccc;
+      color: white;
+    }
+
+    .volver-btn {
+      margin-top: 60px;
+      background-color: transparent;
+      border: 2px solid #ff3399;
+      color: #ff3399;
+      padding: 10px 20px;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .volver-btn:hover {
+      background-color: #ffb3cc;
+      color: white;
+    }
+
+    .mensaje {
+      font-size: 4rem;
+      color: #ff3399;
+      margin-top: 80px;
+      animation: aparecer 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes aparecer {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background-color: #ff66b2;
+      transform: rotate(45deg);
+      animation: float 6s linear infinite;
+      opacity: 0.7;
+      border-radius: 50% 50% 0 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #ff66b2;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        bottom: -20px;
+        opacity: 0.5;
+      }
+      100% {
+        bottom: 100vh;
+        transform: translateX(-30px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>¿Quieres ser mi novia? 💖</h1>
+
+  <div id="botones">
+    <button id="si" onclick="aceptado()">Sí 💘</button>
+    <button id="no" onmouseover="moverBoton()">No 😢</button>
+  </div>
+
+  <div id="mensaje-final" class="mensaje" style="display: none;">¡TE AMO! 💖</div>
+
+  <button class="volver-btn" onclick="window.location.href='index.html'">⏪ Volver al menú</button>
+
+  <script>
+    function moverBoton() {
+      const botonNo = document.getElementById("no");
+      const contenedor = document.getElementById("botones");
+      const maxX = contenedor.clientWidth - botonNo.offsetWidth;
+      const maxY = contenedor.clientHeight - botonNo.offsetHeight;
+
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+
+      botonNo.style.left = `${randomX}px`;
+      botonNo.style.top = `${randomY}px`;
+    }
+
+    function aceptado() {
+      document.getElementById("botones").style.display = "none";
+      document.getElementById("mensaje-final").style.display = "block";
+    }
+
+    // Corazones flotantes
+    function crearCorazon() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDuration = `${Math.random() * 2 + 4}s`;
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 6000);
+    }
+
+    setInterval(crearCorazon, 400);
+  </script>
+
+</body>
+</html>
